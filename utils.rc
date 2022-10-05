@@ -1,0 +1,17 @@
+alias python="python3"
+
+# Colours set for the warez file formatting to make iot easier to identify files
+LS_COLORS=$LS_COLORS:'di=0;36:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'*.tmule=0;31:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'*.tmap=0;32:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'*.net=0;33:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'*.world=0;34:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'*.urdf=0;35:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'*.rc=0;37:' ; export LS_COLORS
+
+# Shortcuts
+function g () { echo "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" ; }
+function gs () { git status ; }
+function t () { clear ; tree ~/warez ; }
+function w () { cd ~/warez/src/warez ; }
+

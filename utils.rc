@@ -3,55 +3,27 @@ alias python="python3"
 
 function general_colours () {
   LS_COLORS=$LS_COLORS:'di=0;36:' ;
-
-  LS_COLORS=$LS_COLORS:'*.net=0;31:' ;
-  LS_COLORS=$LS_COLORS:'*.tmap=0;32:' ;
-  LS_COLORS=$LS_COLORS:'*.urdf=0;33:' ;
-  LS_COLORS=$LS_COLORS:'*.world=0;34:' ;
-
-  LS_COLORS=$LS_COLORS:'*.rc=0;37:' ;
-  LS_COLORS=$LS_COLORS:'*.tmule=0;37:*.tmod=0;37:' ;
-  LS_COLORS=$LS_COLORS:'*.launch=0;37:*.py=0;37:' ;
-  LS_COLORS=$LS_COLORS:'*.txt=0;37:*.xml=0;37:*.md=0;37:' ;
-  echo $LS_COLORS ;
-}
-
-function ros_colours () {
-  LS_COLORS=$LS_COLORS:'di=0;36:' ;
-
-  LS_COLORS=$LS_COLORS:'*.launch=0;33:' ;
-  LS_COLORS=$LS_COLORS:'*.py=0;34:' ;
-
-  LS_COLORS=$LS_COLORS:'*.rc=0;37:' ;
-  LS_COLORS=$LS_COLORS:'*.tmule=0;37:*.tmod=0;37:' ;
-  LS_COLORS=$LS_COLORS:'*.tmap=0;37:*.net=0;37:' ;
-  LS_COLORS=$LS_COLORS:'*.world=0;37:*.urdf=0;37:' ;
-  LS_COLORS=$LS_COLORS:'*.txt=0;37:*.xml=0;37:*.md=0;37:' ;
-  echo $LS_COLORS ;
-}
-
-function tmule_colours () {
-  LS_COLORS=$LS_COLORS:'di=0;36:' ;
-
-  LS_COLORS=$LS_COLORS:'*.tmule=0;31:' ;
-  LS_COLORS=$LS_COLORS:'*.tmod=0;32:' ;
-
   LS_COLORS=$LS_COLORS:'*.rc=0;37:' ;
   LS_COLORS=$LS_COLORS:'*.urdf=0;37:*.world=0;37:' ;
   LS_COLORS=$LS_COLORS:'*.net=0;37:*.tmap=0;37:' ;
+  LS_COLORS=$LS_COLORS:'*.tmule=0;37:*.tmod=0;37:' ;
   LS_COLORS=$LS_COLORS:'*.launch=0;37:*.py=0;37:' ;
   LS_COLORS=$LS_COLORS:'*.txt=0;37:*.xml=0;37:*.md=0;37:' ;
   echo $LS_COLORS ;
 }
+
+function conf_colours () { echo $(general_colours):'*.net=0;31:*.tmap=0;32:*.urdf=0;33:*.world=0;34:' ; }
+function rosy_colours () { echo $(general_colours):'*.launch=0;33:*.py=0;34:' ; }
+function tmul_colours () { echo $(general_colours):'*.tmule=0;31:*.tmod=0;32:' ; }
 
 
 # Shortcuts
 function g () { if [ -d "/media/$USER/HES15591313" ] ; then ls /media/$USER/HES15591313/ | grep "ghp_" ; else ls ~ | grep ghp_ ; fi ; }
 function gs () { git status ; }
 function t () { clear ; tree -L 7 --noreport ~/warez/src ; }
-function tc () { clear ; temp=$LS_COLORS; LS_COLORS=$(general_colours) ; tree -L 7 --noreport ~/warez/src ; export LS_COLORS=$temp ; }
-function tr () { clear ; temp=$LS_COLORS; LS_COLORS=$(ros_colours) ; tree -L 7 --noreport ~/warez/src ; export LS_COLORS=$temp ; }
-function tt () { clear ; temp=$LS_COLORS; LS_COLORS=$(tmule_colours) ; tree -L 7 --noreport ~/warez/src ; export LS_COLORS=$temp ; }
+function tc () { clear ; temp=$LS_COLORS; LS_COLORS=$(conf_colours) ; tree -L 7 --noreport ~/warez/src ; export LS_COLORS=$temp ; }
+function tr () { clear ; temp=$LS_COLORS; LS_COLORS=$(rosy_colours) ; tree -L 7 --noreport ~/warez/src ; export LS_COLORS=$temp ; }
+function tt () { clear ; temp=$LS_COLORS; LS_COLORS=$(tmul_colours) ; tree -L 7 --noreport ~/warez/src ; export LS_COLORS=$temp ; }
 
 function w () { cd ~/warez/src/warez ; }
 

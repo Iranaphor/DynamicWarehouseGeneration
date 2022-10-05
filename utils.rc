@@ -12,6 +12,6 @@ LS_COLORS=$LS_COLORS:'*.rc=0;37:' ; export LS_COLORS
 # Shortcuts
 function g () { echo "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" ; }
 function gs () { git status ; }
-function t () { clear ; tree ~/warez ; }
+function t () { clear ; tree -L 6 ~/warez ; }
 function w () { cd ~/warez/src/warez ; }
 

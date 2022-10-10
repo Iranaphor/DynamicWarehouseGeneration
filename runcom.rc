@@ -1,1 +1,10 @@
 export CONFIG="scenario_1"
+export GZWORLD="$(rospack find sim_core)/maps/object-search-training.world"
+export MAP="$(rospack find sim_core)/maps/object-search-arena.yaml"
+
+export TURTLE_TYPE="burger"
+export TURTLE_POS_X="-3.0"
+export TURTLE_POS_Y="1.0"  
+export TURTLE_POS_Z="0.0"  
+
+

@@ -1,0 +1,5 @@
+<launch>
+  <arg name="map_file" default="$(find sim_core)/maps/object-search-arena.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+</launch>
+

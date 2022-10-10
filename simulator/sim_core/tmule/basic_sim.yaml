@@ -1,0 +1,27 @@
+---
+session: warez_basic_sim
+init_cmd: |
+  #exec /bin/bash
+  echo "Sourcing..."
+  export ROS_MASTER=10.8.0.98
+  export ROS_MASTER_URI=http://$ROS_MASTER:11311
+  export ROS_IP=$ROS_MASTER
+  . /usr/share/gazebo/setup.sh
+  export TURTLEBOT3_MODEL=burger
+
+windows:
+- name: gazebo
+  panes:
+  - roslaunch sim_core gazebo.launch
+  - sleep 2; roslaunch sim_core map.launch
+  check: "rostopic echo /map --noarr -n 1"
+
+- name: robot
+  panes:
+    - roslaunch sim_core robot.launch
+  check: "rostopic echo /scan --noarr -n 1"
+
+- name: movebase
+  panes:
+    - roslaunch sim_core movebase.launch
+  

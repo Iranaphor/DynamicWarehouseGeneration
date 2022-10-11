@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="warehouse_shelf">
+    <static>true</static>
+    <pose>0 0 0 0 0 0</pose>
+
+    <link name="main_block">
+      <pose>0 0 1.255 0 0 0</pose>
+      <collision name="collision"><geometry><box><size>.65 .65 1.51</size></box></geometry></collision>
+      <!-- <visual name="visual"><geometry><box><size>.65 .65 1.51</size></box></geometry></visual> -->
+    </link>
+
+    <link name="leg_1"><pose> .275  .275 .25 0 0 0</pose><collision name="collision"><geometry><box><size>.05 .05 .5</size></box></geometry></collision><visual name="visual"><geometry><box><size>.05 .05 .5</size></box></geometry></visual></link>
+    <link name="leg_2"><pose>-.275  .275 .25 0 0 0</pose><collision name="collision"><geometry><box><size>.05 .05 .5</size></box></geometry></collision><visual name="visual"><geometry><box><size>.05 .05 .5</size></box></geometry></visual></link>
+    <link name="leg_3"><pose>-.275 -.275 .25 0 0 0</pose><collision name="collision"><geometry><box><size>.05 .05 .5</size></box></geometry></collision><visual name="visual"><geometry><box><size>.05 .05 .5</size></box></geometry></visual></link>
+    <link name="leg_4"><pose> .275 -.275 .25 0 0 0</pose><collision name="collision"><geometry><box><size>.05 .05 .5</size></box></geometry></collision><visual name="visual"><geometry><box><size>.05 .05 .5</size></box></geometry></visual></link>
+
+    <link name="shelf_0">  <pose>0 0 0.5 0 0 0</pose><visual name="visual"><geometry><box><size>.648 .648 .02</size></box></geometry><material><ambient>0.75 0.10 0.10 1</ambient><diffuse>0.75 0.10 0.10 1</diffuse></material></visual></link>
+    <link name="shelf_1">  <pose>0 0 1.0 0 0 0</pose><visual name="visual"><geometry><box><size>.648 .648 .02</size></box></geometry><material><ambient>0.10 0.75 0.10 1</ambient><diffuse>0.10 0.75 0.10 1</diffuse></material></visual></link>
+    <link name="shelf_2">  <pose>0 0 1.5 0 0 0</pose><visual name="visual"><geometry><box><size>.648 .648 .02</size></box></geometry><material><ambient>0.10 0.10 0.75 1</ambient><diffuse>0.10 0.10 0.75 1</diffuse></material></visual></link>
+    <link name="shelf_top"><pose>0 0 2.0 0 0 0</pose><visual name="visual"><geometry><box><size>.648 .648 .02</size></box></geometry><material><ambient>0.10 0.10 0.10 1</ambient><diffuse>0.10 0.10 0.10 1</diffuse></material></visual></link>
+
+    <link name="side_left"> <pose> .324 .000 1.25 0 0 0</pose><visual name="visual"><geometry><box><size>.02 .65 1.52</size></box></geometry></visual></link>
+    <link name="side_right"><pose>-.324 .000 1.25 0 0 0</pose><visual name="visual"><geometry><box><size>.02 .65 1.52</size></box></geometry></visual></link>
+    <link name="side_back"> <pose> .000 .324 1.25 0 0 0</pose><visual name="visual"><geometry><box><size>.65 .02 1.52</size></box></geometry></visual></link>
+
+  </model>
+</sdf>

@@ -1,12 +1,72 @@
 <?xml version='1.0'?>
 <sdf version="1.4">
   <model name="warehouse_shelf">
-    <pose>0 0 0.5 0 0 0</pose>
     <static>true</static>
-    <link name="link">
-      <inertial><mass>1.0</mass><inertia><ixx>0.083</ixx><ixy>0.0</ixy><ixz>0.0</ixz><iyy>0.083</iyy><iyz>0.0</iyz><izz>0.083</izz></inertia></inertial>
-      <collision name="collision"><geometry><box><size>1 1 1</size></box></geometry></collision>
-      <visual name="visual"><geometry><box><size>1 1 3</size></box></geometry></visual>
-    </link>
+    <pose>0 0 0 0 0 0</pose>
+
+
+    <link name="main_block">
+      <pose>0 0 1.25 0 0 0</pose>
+      <collision name="collision"><geometry><box><size>.65 .65 1.5</size></box></geometry></collision>
+       <!-- <visual name="visual"><geometry><box><size>.65 .65 1.5</size></box></geometry></visual> --></link>
+
+
+    <link name="leg_1">
+        <pose>  .3  .3 1 0 0 0</pose>
+        <collision name="collision"><geometry><box><size> .05 .05 2</size></box></geometry></collision>
+        <visual name="visual">      <geometry><box><size> .05 .05 2</size></box></geometry>
+        <material><ambient>.2 .2 .2 1</ambient>
+                  <diffuse>.3 .3 .3 1</diffuse></material></visual></link>
+    <link name="leg_2">
+        <pose> -.3  .3 1 0 0 0</pose>
+        <collision name="collision"><geometry><box><size> .05 .05 2</size></box></geometry></collision>
+        <visual name="visual">      <geometry><box><size> .05 .05 2</size></box></geometry>
+        <material><ambient>.2 .2 .2 1</ambient>
+                  <diffuse>.3 .3 .3 1</diffuse></material></visual></link>
+    <link name="leg_3">
+        <pose> -.3 -.3 1 0 0 0</pose>
+        <collision name="collision"><geometry><box><size> .05 .05 2</size></box></geometry></collision>
+        <visual name="visual">      <geometry><box><size> .05 .05 2</size></box></geometry>
+        <material><ambient>.2 .2 .2 1</ambient>
+                  <diffuse>.3 .3 .3 1</diffuse></material></visual></link>
+    <link name="leg_4">
+        <pose>  .3 -.3 1 0 0 0</pose>
+        <collision name="collision"><geometry><box><size> .05 .05 2</size></box></geometry></collision>
+        <visual name="visual">      <geometry><box><size> .05 .05 2</size></box></geometry>
+        <material><ambient>.2 .2 .2 1</ambient>
+                  <diffuse>.3 .3 .3 1</diffuse></material></visual></link>
+
+
+    <link name="shelf_0">
+        <pose>0 0 .49 0 0 0</pose>
+        <visual name="visual"><geometry><box><size>.649 .649 .02</size></box></geometry>
+        <material><ambient>.2 .05 0 1</ambient>
+                  <diffuse>.6 .4 0 1</diffuse></material></visual></link>
+
+    <link name="shelf_1">
+        <pose>0 0 .99 0 0 0</pose>
+        <visual name="visual"><geometry><box><size>.649 .649 .02</size></box></geometry>
+        <material><ambient>.2 .05 0 1</ambient>
+                  <diffuse>.6 .4 0 1</diffuse></material></visual></link>
+
+    <link name="shelf_2">
+        <pose>0 0 1.49 0 0 0</pose>
+        <visual name="visual"><geometry><box><size>.649 .649 .02</size></box></geometry>
+        <material><ambient>.2 .05 0 1</ambient>
+                  <diffuse>.6 .4 0 1</diffuse></material></visual></link>
+
+    <link name="shelf_top">
+        <pose>0 0 1.99 0 0 0</pose>
+        <visual name="visual"><geometry><box><size>.65 .65 .04</size></box></geometry>
+        <material><ambient>.2 .2 .2 1</ambient>
+                  <diffuse>.3 .3 .3 1</diffuse></material></visual></link>
+
   </model>
 </sdf>
+
+
+
+
+
+
+

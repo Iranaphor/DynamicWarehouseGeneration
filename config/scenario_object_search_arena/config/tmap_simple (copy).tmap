@@ -1,0 +1,95 @@
+- meta:
+    map: riseholme
+    node: WayPoint140
+    pointset: riseholme_restrict
+  node:
+
+    edges:
+    - edge_id: WayPoint140_WayPoint74
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: WayPoint140_WayPoint141
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: WayPoint141
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: WayPoint140_WayPoint142
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: WayPoint142
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+
+    localise_by_topic: ''
+    parent_frame: map
+    name: WayPoint140
+
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 20.7508434296
+        y: -4.37950954437
+        z: 0.0
+
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+
+    verts:
+    - x: -0.389276951551
+      y: 0.63791257143
+    - x: -0.725811064243
+      y: 0.177953019738
+    - x: -0.63791257143
+      y: -0.389276951551
+    - x: -0.177953019738
+      y: -0.725811064243
+    - x: 0.389276951551
+      y: -0.63791257143
+    - x: 0.725811064243
+      y: -0.177953019738
+    - x: 0.63791257143
+      y: 0.389276951551
+    - x: 0.177953019738
+      y: 0.725811064243

@@ -1,0 +1,22 @@
+meta:
+  last_updated: 2022-06-23_13-10-11
+metric_map: riseholme
+name: riseholme_restrict
+
+nodes:
+ - ...
+
+pointset: riseholme_restrict
+transformation:
+  child: topo_map
+  parent: map
+  rotation:
+    w: 1.0
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  translation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+

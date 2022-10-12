@@ -1,0 +1,80 @@
+- meta:
+    map: riseholme
+    node: r6.5-cb
+    pointset: riseholme_restrict
+
+  node:
+
+    edges:
+
+    - edge_id: r6.5-cb_r6.5-ca
+      action: row_traversal
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: r6.5-ca
+      recovery_behaviours_config: ''
+      restrictions_planning: robot_short
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: r6.5-cb_r6.5-c0
+      action: row_traversal
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: r6.5-c0
+      recovery_behaviours_config: ''
+      restrictions_planning: robot_short
+      restrictions_runtime: obstacleFree_1
+
+    localise_by_topic: ''
+    name: r6.5-cb
+    parent_frame: map
+
+
+    pose:
+      orientation:
+        w: 0.7566142743603234
+        x: 0.0
+        y: 0.0
+        z: -0.6538614836754045
+      position:
+        x: 18.77
+        y: -13.2575
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 6.28
+    restrictions_planning: robot_short
+    restrictions_runtime: obstacleFree_1
+
+
+    verts:
+    - x: 0.3839717361251064
+      y: -0.6411198818013286
+    - x: 0.5264215248037732
+      y: -0.212953957097135
+    - x: 0.4432315207951729
+      y: 0.3549856737865013
+    - x: 0.1839678947585299
+      y: 0.724309885809929
+    - x: -0.3839717361251064
+      y: 0.6411198818013286
+    - x: -0.5264215248037732
+      y: 0.212953957097135
+    - x: -0.4432315207951729
+      y: -0.3549856737865013
+    - x: -0.1839678947585299
+      y: -0.724309885809929

@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version="1.4">
-  <model name="warehouse_shelf">
+  <model name="cabinet_shelf">
     <static>true</static>
     <pose>0 0 0 0 0 0</pose>
 

@@ -1,0 +1,1984 @@
+meta:
+  last_updated: 2022-06-23_13-10-11
+metric_map: riseholme
+name: riseholme_restrict
+pointset: riseholme_restrict
+transformation:
+  child: topo_map
+  parent: map
+  rotation:
+    w: 1.0
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  translation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+nodes:
+- meta:
+    map: riseholme
+    node: walkway-r1-c1
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r1-c1
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -1.3000000000000003
+        y: -1.3000000000000003
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r1-c1_walkway-r2-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r1-c1_walkway-r1-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r1-c2
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r1-c2
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -0.6500000000000001
+        y: -1.3000000000000003
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+    edges:
+
+    - edge_id: walkway-r1-c2_walkway-r1-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r1-c2_warehouse_shelf-r2-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: warehouse_shelf-r2-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r1-c2_walkway-r1-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r1-c3
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r1-c3
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.0
+        y: -1.3000000000000003
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r1-c3_walkway-r1-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r1-c3_walkway-r2-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r1-c3_walkway-r1-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r1-c4
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r1-c4
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.6499999999999999
+        y: -1.3000000000000003
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r1-c4_walkway-r1-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r1-c4_walkway-r2-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r1-c4_walkway-r1-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r1-c5
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r1-c5
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 1.2999999999999998
+        y: -1.3000000000000003
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r1-c5_walkway-r1-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r1-c5_walkway-r2-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r2-c1
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r2-c1
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -1.3000000000000003
+        y: -0.6500000000000001
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+    edges:
+
+    - edge_id: walkway-r2-c1_walkway-r1-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c1_walkway-r3-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c1_warehouse_shelf-r2-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: warehouse_shelf-r2-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: warehouse_shelf-r2-c2
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: warehouse_shelf-r2-c2
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -0.6500000000000001
+        y: -0.6500000000000001
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert1
+
+    - edge_id: warehouse_shelf-r2-c2_walkway-r1-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: warehouse_shelf-r2-c2_walkway-r2-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: warehouse_shelf-r2-c2_walkway-r3-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: warehouse_shelf-r2-c2_walkway-r2-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r2-c3
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r2-c3
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.0
+        y: -0.6500000000000001
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+    edges:
+
+    - edge_id: walkway-r2-c3_walkway-r1-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c3_warehouse_shelf-r2-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: warehouse_shelf-r2-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c3_walkway-r3-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c3_walkway-r2-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r2-c4
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r2-c4
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.6499999999999999
+        y: -0.6500000000000001
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r2-c4_walkway-r1-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c4_walkway-r2-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c4_walkway-r3-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c4_walkway-r2-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r2-c5
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r2-c5
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 1.2999999999999998
+        y: -0.6500000000000001
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r2-c5_walkway-r1-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r1-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c5_walkway-r2-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r2-c5_walkway-r3-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r3-c1
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r3-c1
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -1.3000000000000003
+        y: 0.0
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r3-c1_walkway-r2-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c1_walkway-r4-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c1_walkway-r3-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r3-c2
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r3-c2
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -0.6500000000000001
+        y: 0.0
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+    edges:
+
+    - edge_id: walkway-r3-c2_warehouse_shelf-r2-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: warehouse_shelf-r2-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c2_walkway-r3-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c2_walkway-r4-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c2_walkway-r3-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r3-c3
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r3-c3
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+    edges:
+
+    - edge_id: walkway-r3-c3_walkway-r2-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c3_walkway-r3-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c3_warehouse_shelf-r4-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: warehouse_shelf-r4-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c3_walkway-r3-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r3-c4
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r3-c4
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.6499999999999999
+        y: 0.0
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r3-c4_walkway-r2-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c4_walkway-r3-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c4_walkway-r4-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c4_walkway-r3-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r3-c5
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r3-c5
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 1.2999999999999998
+        y: 0.0
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r3-c5_walkway-r2-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r2-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c5_walkway-r3-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r3-c5_walkway-r4-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r4-c1
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r4-c1
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -1.3000000000000003
+        y: 0.6499999999999999
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r4-c1_walkway-r3-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c1_walkway-r5-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c1_walkway-r4-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r4-c2
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r4-c2
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -0.6500000000000001
+        y: 0.6499999999999999
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+    edges:
+
+    - edge_id: walkway-r4-c2_walkway-r3-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c2_walkway-r4-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c2_walkway-r5-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c2_warehouse_shelf-r4-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: warehouse_shelf-r4-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: warehouse_shelf-r4-c3
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: warehouse_shelf-r4-c3
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.0
+        y: 0.6499999999999999
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert1
+
+    - edge_id: warehouse_shelf-r4-c3_walkway-r3-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: warehouse_shelf-r4-c3_walkway-r4-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: warehouse_shelf-r4-c3_walkway-r5-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: warehouse_shelf-r4-c3_walkway-r4-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r4-c4
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r4-c4
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.6499999999999999
+        y: 0.6499999999999999
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+    edges:
+
+    - edge_id: walkway-r4-c4_walkway-r3-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c4_warehouse_shelf-r4-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: warehouse_shelf-r4-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c4_walkway-r5-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c4_walkway-r4-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r4-c5
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r4-c5
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 1.2999999999999998
+        y: 0.6499999999999999
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r4-c5_walkway-r3-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r3-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c5_walkway-r4-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r4-c5_walkway-r5-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r5-c1
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r5-c1
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -1.3000000000000003
+        y: 1.2999999999999998
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r5-c1_walkway-r4-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r5-c1_walkway-r5-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r5-c2
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r5-c2
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: -0.6500000000000001
+        y: 1.2999999999999998
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r5-c2_walkway-r4-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r5-c2_walkway-r5-c1
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c1
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r5-c2_walkway-r5-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r5-c3
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r5-c3
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.0
+        y: 1.2999999999999998
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+    edges:
+
+    - edge_id: walkway-r5-c3_warehouse_shelf-r4-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: warehouse_shelf-r4-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r5-c3_walkway-r5-c2
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c2
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r5-c3_walkway-r5-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r5-c4
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r5-c4
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 0.6499999999999999
+        y: 1.2999999999999998
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r5-c4_walkway-r4-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r5-c4_walkway-r5-c3
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c3
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r5-c4_walkway-r5-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+- meta:
+    map: riseholme
+    node: walkway-r5-c5
+    pointset: riseholme_restrict
+  node:
+    localise_by_topic: ''
+    parent_frame: map
+    name: walkway-r5-c5
+    pose:
+      orientation:
+        w: 0.7897749049165983
+        x: 0.0
+        y: 0.0
+        z: -0.6133967717260812
+      position:
+        x: 1.2999999999999998
+        y: 1.2999999999999998
+        z: 0.0
+    properties:
+      xy_goal_tolerance: 0.3
+      yaw_goal_tolerance: 0.1
+    restrictions_planning: 'True'
+    restrictions_runtime: obstacleFree_1
+    verts: *vert0
+
+    - edge_id: walkway-r5-c5_walkway-r4-c5
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r4-c5
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+    - edge_id: walkway-r5-c5_walkway-r5-c4
+      action: move_base
+      action_type: move_base_msgs/MoveBaseGoal
+      config: []
+      fail_policy: fail
+      fluid_navigation: true
+      goal:
+        target_pose:
+          header:
+            frame_id: $node.parent_frame
+          pose: $node.pose
+      node: walkway-r5-c4
+      recovery_behaviours_config: ''
+      restrictions_planning: 'True'
+      restrictions_runtime: obstacleFree_1
+
+verts:
+  verts:
+  - verts: &vert0
+    - x: -0.389276951551
+      y: 0.63791257143
+    - x: -0.725811064243
+      y: 0.177953019738
+    - x: -0.63791257143
+      y: -0.389276951551
+    - x: -0.177953019738
+      y: -0.725811064243
+    - x: 0.389276951551
+      y: -0.63791257143
+    - x: 0.725811064243
+      y: -0.177953019738
+    - x: 0.63791257143
+      y: 0.389276951551
+    - x: 0.177953019738
+      y: 0.725811064243
+  - verts: &vert1
+    - x: 0.3839717361251064
+      y: -0.6411198818013286
+    - x: 0.5264215248037732
+      y: -0.212953957097135
+    - x: 0.4432315207951729
+      y: 0.3549856737865013
+    - x: 0.1839678947585299
+      y: 0.724309885809929
+    - x: -0.3839717361251064
+      y: 0.6411198818013286
+    - x: -0.5264215248037732
+      y: 0.212953957097135
+    - x: -0.4432315207951729
+      y: -0.3549856737865013
+    - x: -0.1839678947585299
+      y: -0.724309885809929
+    verts: &vert3
+    - x: 0.3839717361251064
+      y: -0.6411198818013286
+    - x: 0.5264215248037732
+      y: -0.212953957097135
+    - x: 0.4432315207951729
+      y: 0.3549856737865013
+    - x: 0.1839678947585299
+      y: 0.724309885809929
+    - x: -0.3839717361251064
+      y: 0.6411198818013286
+    - x: -0.5264215248037732
+      y: 0.212953957097135
+    - x: -0.4432315207951729
+      y: -0.3549856737865013
+    - x: -0.1839678947585299
+      y: -0.724309885809929

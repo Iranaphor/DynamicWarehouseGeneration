@@ -3,40 +3,7 @@
     node: WayPoint140
     pointset: riseholme_restrict
   node:
-
     edges:
-    - edge_id: WayPoint140_WayPoint74
-      action: move_base
-      action_type: move_base_msgs/MoveBaseGoal
-      config: []
-      fail_policy: fail
-      fluid_navigation: true
-      goal:
-        target_pose:
-          header:
-            frame_id: $node.parent_frame
-          pose: $node.pose
-      node: WayPoint74
-      recovery_behaviours_config: ''
-      restrictions_planning: 'True'
-      restrictions_runtime: obstacleFree_1
-
-    - edge_id: WayPoint140_WayPoint141
-      action: move_base
-      action_type: move_base_msgs/MoveBaseGoal
-      config: []
-      fail_policy: fail
-      fluid_navigation: true
-      goal:
-        target_pose:
-          header:
-            frame_id: $node.parent_frame
-          pose: $node.pose
-      node: WayPoint141
-      recovery_behaviours_config: ''
-      restrictions_planning: 'True'
-      restrictions_runtime: obstacleFree_1
-
     - edge_id: WayPoint140_WayPoint142
       action: move_base
       action_type: move_base_msgs/MoveBaseGoal

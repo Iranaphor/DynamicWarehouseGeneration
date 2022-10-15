@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="tmap_file"/>
+
+    <node pkg="topological_navigation" type="map_manager2.py" name="topological_map_manager2" args="$(arg tmap_file)" respawn="true"/>
+    <node pkg="topological_navigation" type="visualise_map.py" name="visualise_map" args="-e" respawn="false" />
+
+    <group ns="restricted_maps">
+
+        <group ns="normal_map">
+            <node pkg="sim_core" name="restrictor" type="restrictor.py" output="screen" respawn="true" >
+                <param name="initial_restriction" type="str" value="'general' in $"/>
+                <param name="enable_eval_sub" type="bool" value="False" />
+                <remap from="/restricted_topological_map" to="tmap" />
+                <remap from="/restricted_topological_map_2" to="tmap_2" />
+            </node>
+            <node pkg="topological_navigation" type="visualise_map2.py" name="topological_visualisation" output="screen">
+                <remap from="topological_map_2" to="tmap_2" />
+                <remap from="topological_map_zones/feedback" to="/topological_map_zones/feedback" />
+                <remap from="topological_map_visualisation" to="tmap_vis" />
+            </node>
+        </group>
+        <!--
+        <group ns="under_map">
+            <node pkg="sim_core" name="restrictor" type="restrictor.py" output="screen" respawn="true" >
+                <param name="initial_restriction" type="str" value="'under' in $"/>
+                <param name="enable_eval_sub" type="bool" value="False" />
+                <remap from="/restricted_topological_map" to="tmap" />
+            </node>
+            <node pkg="topological_navigation" type="visualise_map2.py" name="topological_visualisation" output="screen">
+                <remap from="topological_map_2" to="tmap_2" />
+                <remap from="topological_map_zones/feedback" to="/topological_map_zones/feedback" />
+                <remap from="topological_map_visualisation" to="tmap_vis" />
+            </node>
+        </group>
+        -->
+    </group>
+</launch>

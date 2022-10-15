@@ -6,7 +6,7 @@ from wfc import wfc
 ## CONFIGURATION
 
 shelf_dim = [0.65, 0.65]
-output_siz = (3, 3)
+output_siz = (8, 8)
 render = False
 pixels = [[000, 000, 000, 000, 000, 000],
           [000, 000, 000, 111, 000, 000],
@@ -133,7 +133,7 @@ def get_node(node_details):
     properties:
       xy_goal_tolerance: 0.3
       yaw_goal_tolerance: 0.1
-    restrictions_planning: 'True'
+    restrictions_planning: {restrictions}
     restrictions_runtime: obstacleFree_1
     verts: {vert}
 """.format(**node_details)
@@ -154,7 +154,7 @@ def get_edge(edge_details):
           pose: $node.pose
       node: {name2}
       recovery_behaviours_config: ''
-      restrictions_planning: 'True'
+      restrictions_planning: {restrictions}
       restrictions_runtime: obstacleFree_1
 """.format(**edge_details)
 
@@ -163,56 +163,39 @@ def get_verts():
 verts:
   verts:
   - verts: &vert0
-    - x: -0.389276951551
-      y: 0.63791257143
-    - x: -0.725811064243
-      y: 0.177953019738
-    - x: -0.63791257143
-      y: -0.389276951551
-    - x: -0.177953019738
-      y: -0.725811064243
-    - x: 0.389276951551
-      y: -0.63791257143
-    - x: 0.725811064243
-      y: -0.177953019738
-    - x: 0.63791257143
-      y: 0.389276951551
-    - x: 0.177953019738
-      y: 0.725811064243
+    - x: -0.13
+      y:  0.213
+    - x: -0.242
+      y:  0.059
+    - x: -0.213
+      y: -0.13
+    - x: -0.059
+      y: -0.242
+    - x:  0.13
+      y: -0.213
+    - x:  0.242
+      y: -0.059
+    - x:  0.213
+      y:  0.13
+    - x:  0.059
+      y:  0.242
   - verts: &vert1
-    - x: 0.3839717361251064
-      y: -0.6411198818013286
-    - x: 0.5264215248037732
-      y: -0.212953957097135
-    - x: 0.4432315207951729
-      y: 0.3549856737865013
-    - x: 0.1839678947585299
-      y: 0.724309885809929
-    - x: -0.3839717361251064
-      y: 0.6411198818013286
-    - x: -0.5264215248037732
-      y: 0.212953957097135
-    - x: -0.4432315207951729
-      y: -0.3549856737865013
-    - x: -0.1839678947585299
-      y: -0.724309885809929
-    verts: &vert3
-    - x: 0.3839717361251064
-      y: -0.6411198818013286
-    - x: 0.5264215248037732
-      y: -0.212953957097135
-    - x: 0.4432315207951729
-      y: 0.3549856737865013
-    - x: 0.1839678947585299
-      y: 0.724309885809929
-    - x: -0.3839717361251064
-      y: 0.6411198818013286
-    - x: -0.5264215248037732
-      y: 0.212953957097135
-    - x: -0.4432315207951729
-      y: -0.3549856737865013
-    - x: -0.1839678947585299
-      y: -0.724309885809929
+    - x:  0.128
+      y: -0.214
+    - x:  0.175
+      y: -0.071
+    - x:  0.148
+      y:  0.118
+    - x:  0.061
+      y:  0.241
+    - x: -0.128
+      y:  0.214
+    - x: -0.175
+      y: 0.071
+    - x: -0.148
+      y: -0.118
+    - x: -0.061
+      y: -0.241
 """
 
 def get_neighbours(grid, ri, ci):
@@ -224,57 +207,76 @@ def get_neighbours(grid, ri, ci):
     if ci+1 <= h: neighbours+=[[ri, ci+1, grid[ri][ci+1] ]]
     return neighbours
 
-def generate_tmap(grid):
-    renders = {
-      '0': {'type': 'walkway',         'vert': '*vert0'},
-      '1': {'type': 'warehouse_shelf', 'vert': '*vert1'},
-      '2': {'type': 'pole',            'vert': '*vert2'}}
 
+renders = {
+    '0': {'type': 'walkway',         'vert': '*vert0', 'restrictions': "['under', 'general']" },
+    '1': {'type': 'warehouse_shelf', 'vert': '*vert1', 'restrictions': "['under']" },
+    '2': {'type': 'pole',            'vert': '*vert2', 'restrictions': "False" }
+}
+
+
+def get_restrictions(cat, cat2):
+    if cat == '0' and cat2 == '0':
+        return renders['0']['restrictions']
+    return renders['1']['restrictions']
+
+def generate_tmap(grid):
     # Get standard vertice points
     verts = get_verts()
 
     # Get tmap base setup
-    tmap_details = {'gen_time': '2022-06-23_13-10-11', 'location': 'riseholme'}
+    tmap_details = {'gen_time': '2022-06-23_13-10-11', 'location': 'auto_gen'}
     tmap = get_tmap(tmap_details)
 
     for ri,r in enumerate(grid):
         for ci,c in enumerate(grid[ri]):
 
             # Skip pole nodes
-            if str(grid[ri][ci]) == "2": continue
+            cat = str(grid[ri][ci])
+            ren = renders[cat]['type']
+            if ren == 'pole': continue
 
             # Generate generic node template
-            cat = str(grid[ri][ci])
-            name = "%s-r%s-c%s"%(renders[cat]['type'], ri, ci)
+            name = "%s-r%s-c%s"%(ren, ri, ci)
             x = ci*shelf_dim[0] - (0.5*shelf_dim[0]*(len(grid)-1))
             y = ri*shelf_dim[1] - (0.5*shelf_dim[1]*(len(grid[ri])-1))
-            node_details = {'name':name, 'location':tmap_details['location'], 'vert': renders[cat]['vert'], 'x':x, 'y':y}
+            node_details = {'name':name,
+                            'location':tmap_details['location'],
+                            'vert': renders[cat]['vert'],
+                            'x':x,
+                            'y':y,
+                            'restrictions':renders[cat]['restrictions']}
             node = get_node(node_details)
 
             #Get neighbouring edges
             neighbours = get_neighbours(grid, ri, ci)
-            if any([n[2] for n in neighbours if str(n[2]) != "2"]):
+            if any([True for nei in neighbours if str(nei[2]) != "2"]):
                 node += """    edges:
 """
             for nei in neighbours:
 
                 #Skip if pole
-                if str(nei[2]) == "2": continue
+                cat2 = str(nei[2])
+                ren2 = renders[cat2]['type']
+                if ren2 == 'pole': continue
 
                 # Generate edge
                 neighbour = str(grid[nei[0], nei[1]])
-                name2 = "%s-r%s-c%s"%(renders[str(nei[2])]['type'], nei[0], nei[1])
-                edge_details = {'name':name, 'name2':name2, 'action':'move_base', 'action_type':'move_base_msgs/MoveBaseGoal'}
+                name2 = "%s-r%s-c%s"%(ren2, nei[0], nei[1])
+                edge_details = {'name':name,
+                                'name2':name2,
+                                'action':'move_base',
+                                'action_type':'move_base_msgs/MoveBaseGoal',
+                                'restrictions': get_restrictions(cat, cat2)}
                 node += get_edge(edge_details)
 
             tmap+=node
-    tmap+=verts
-    return tmap
+    verts+=tmap
+    return verts
 
 
+# Save TMap file
 tmap = generate_tmap(grid)
-tmap_path = "/home/diababa/warez/src/warez/config/scenario_object_search_arena/config/tmaps/tmap_AUTO.yaml"
-#print("\n\n+=+=+=+=+\n")
-
+tmap_path = "/home/diababa/warez/src/warez/config/scenario_warehouse_simple/config/tmaps/tmap.tmap2"
 with open(tmap_path, 'w+') as f:
     f.write(tmap)

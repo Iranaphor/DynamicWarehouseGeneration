@@ -5,6 +5,7 @@ init_cmd: |
   echo "Sourcing..."
   source ~/warez/src/warez/runcom.rc
   source $(rospack find $CONFIG)/config/network.net
+  export TMAP_FILE=$(rospack find $CONFIG)/config/tmaps/tmap.tmap2
   . /usr/share/gazebo/setup.sh
   export TURTLEBOT3_MODEL=burger
 
@@ -13,6 +14,10 @@ windows:
   panes:
   - roslaunch sim_core bringup.launch
   check: "rostopic echo /odom -n 1"
+
+- name: topomap_management
+  panes:
+  - roslaunch sim_core topological_map_manager2_central.launch tmap_file:=$TMAP_FILE
 
 - name: movebase
   panes:

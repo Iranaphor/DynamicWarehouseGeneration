@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="tmap_file"/>
+
+    <node pkg="topological_navigation" type="map_manager2.py" name="topological_map_manager2" args="$(arg tmap_file)" respawn="true"/>
+    <node pkg="topological_navigation" type="visualise_map.py" name="visualise_map" args="-e" respawn="false" />
+
+    <group ns="restricted_maps">
+        <group ns="normal_map">
+            <node pkg="topological_navigation" name="restrictor" type="restrictions_manager.py" output="screen" respawn="true" >
+                <remap from="/restricted_topological_map" to="tmap" />
+            </node>
+            <node pkg="topological_navigation" type="visualise_map.py" name="visualise_map" args="-e" respawn="false" >
+                <remap from="topological_map" to="tmap" />
+                <remap from="topological_map_2" to="tmap_2" />
+                <remap from="topological_map_visualisation" to="tmap_vis" />
+            </node>
+        </group>
+
+        <group ns="under_map">
+            <node pkg="topological_navigation" name="restrictor" type="restrictions_manager.py" output="screen" respawn="true" >
+                <remap from="/restricted_topological_map" to="tmap" />
+            </node>
+            <node pkg="topological_navigation" type="visualise_map.py" name="visualise_map" args="-e" respawn="false" >
+                <remap from="topological_map" to="tmap" />
+                <remap from="topological_map_2" to="tmap_2" />
+                <remap from="topological_map_visualisation" to="tmap_vis" />
+            </node>
+        </group>
+    </group>
+
+</launch>
+

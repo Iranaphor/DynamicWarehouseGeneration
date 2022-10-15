@@ -8,5 +8,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <depend>turtlebot_gazebo</depend>
   <depend>turtlebot_navigation</depend>
+  <depend>map_server</depend>
+  <depend>topological_navigation</depend>
   <export></export>
 </package>

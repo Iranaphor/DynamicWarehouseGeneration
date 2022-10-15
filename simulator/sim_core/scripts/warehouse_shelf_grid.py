@@ -6,7 +6,7 @@ from wfc import wfc
 ## CONFIGURATION
 
 shelf_dim = [0.65, 0.65]
-output_siz = (8, 8)
+output_siz = (45, 32)
 render = False
 pixels = [[000, 000, 000, 000, 000, 000],
           [000, 000, 000, 111, 000, 000],

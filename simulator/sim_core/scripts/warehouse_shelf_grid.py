@@ -6,7 +6,7 @@ from wfc import wfc
 ## CONFIGURATION
 
 shelf_dim = [0.65, 0.65]
-output_siz = (45, 32)
+output_siz = (20, 20)
 render = False
 pixels = [[000, 000, 000, 000, 000, 000],
           [000, 000, 000, 111, 000, 000],
@@ -14,6 +14,7 @@ pixels = [[000, 000, 000, 000, 000, 000],
           [000, 111, 111, 111, 111, 000],
           [000, 000, 000, 000, 111, 000],
           [000, 000, 000, 000, 000, 000]]
+#pixels = [[0, 0, 111],[0,111,111],[111,111,111]]
 
 
 ## PRINTING
@@ -62,6 +63,10 @@ cv2.floodFill(base, mask, (0,0), 2)
 
 grid = np.pad(np.pad(2-base[2:-2,2:-2], pad_width=1, constant_values=0), pad_width=1, constant_values=2)
 pretty(grid, name="Pole Renderings:")
+
+
+## FILL HOLES (SHELF BLOCKED BY POLES)
+
 
 ## GENERATE CODE
 

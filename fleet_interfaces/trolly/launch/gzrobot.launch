@@ -1,0 +1,14 @@
+<launch>
+  <arg name="namespace"/>
+
+  <arg name="model" value="$(find trolly)/urdf/urdf.xacro"/>
+
+  <arg name="x_pos"/>
+  <arg name="y_pos"/>
+  <arg name="z_pos"/>
+
+  <group ns="$(arg namespace)">
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg namespace) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+  </group>
+</launch>

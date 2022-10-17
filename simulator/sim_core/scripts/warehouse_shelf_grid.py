@@ -6,7 +6,7 @@ from wfc import wfc
 ## CONFIGURATION
 
 shelf_dim = [0.65, 0.65]
-output_siz = (20, 20)
+output_siz = (10, 10)
 render = False
 pixels = [[000, 000, 000, 000, 000, 000],
           [000, 000, 000, 111, 000, 000],
@@ -14,7 +14,7 @@ pixels = [[000, 000, 000, 000, 000, 000],
           [000, 111, 111, 111, 111, 000],
           [000, 000, 000, 000, 111, 000],
           [000, 000, 000, 000, 000, 000]]
-#pixels = [[0, 0, 111],[0,111,111],[111,111,111]]
+pixels = [[111, 0, 111],[0,111,111],[111,111,111]]
 
 
 ## PRINTING
@@ -255,9 +255,8 @@ def generate_tmap(grid):
 
             #Get neighbouring edges
             neighbours = get_neighbours(grid, ri, ci)
-            if any([True for nei in neighbours if str(nei[2]) != "2"]):
-                node += """    edges:
-"""
+            edge_list = []
+
             for nei in neighbours:
 
                 #Skip if pole
@@ -273,7 +272,15 @@ def generate_tmap(grid):
                                 'action':'move_base',
                                 'action_type':'move_base_msgs/MoveBaseGoal',
                                 'restrictions': get_restrictions(cat, cat2)}
-                node += get_edge(edge_details)
+                edge_list += [get_edge(edge_details)]
+
+            # Add edges or empty list
+            if edge_list:
+                node += """    edges:
+""" + ''.join(edge_list)
+            else:
+                node += """    edges: []
+"""
 
             tmap+=node
     verts+=tmap

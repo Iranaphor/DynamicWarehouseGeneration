@@ -1,0 +1,27 @@
+export WS_DIR=$HOME/warez
+export WWS_DIR=$WS_DIR/src/warez
+
+# Building
+function rebuild() {
+  cd $WS_DIR
+  rm -r build/
+  rm -r devel/
+  rosdep install --from-paths src --ignore-src -r -y
+  catkin_make
+  source ./devel/setup.bash
+  cd $OLDPWD
+}
+function frame () {
+  rosrun tf view_frames
+  evince frames.pdf
+}
+
+# 
+alias t="tmux"
+
+# tmule shortcuts 
+function slau () { tmule -c $WWS_DIR/simulator/sim_core/tmule/server_sim.yaml launch ; }
+function ster () { tmule -c $WWS_DIR/simulator/sim_core/tmule/server_sim.yaml terminate ; }
+function rlau () { tmule -c $WWS_DIR/fleet_interfaces/trolly/tmule/single_robot.yaml launch ; }
+function rter () { tmule -c $WWS_DIR/fleet_interfaces/trolly/tmule/single_robot.yaml terminate ; }
+function sr () { slau; rlau ; }

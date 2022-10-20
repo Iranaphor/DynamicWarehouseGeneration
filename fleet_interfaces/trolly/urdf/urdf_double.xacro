@@ -12,22 +12,22 @@
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="0.0 0.0 0.030" rpy="0 0 0"/>
+    <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
   </joint>
 
   <link name="base_link">
     <visual>
-      <origin xyz="-0.096 0 0.210" rpy="0 0 0"/>
+      <origin xyz="-0.064 0 0.140" rpy="0 0 0"/>
       <geometry>
-        <box size="0.420 0.420 0.429"/>
+        <box size="0.280 0.280 0.286"/>
       </geometry>
       <material name="orange"/>
     </visual>
 
     <collision>
-      <origin xyz="-0.096 0 0.210" rpy="0 0 0"/>
+      <origin xyz="-0.064 0 0.140" rpy="0 0 0"/>
       <geometry>
-        <box size="0.420 0.420 0.429"/>
+        <box size="0.280 0.280 0.286"/>
       </geometry>
     </collision>
 
@@ -48,7 +48,7 @@
   <joint name="wheel_left_joint" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_left_link"/>
-    <origin xyz="0.0 0.24 0.069" rpy="-1.57 0 0"/>
+    <origin xyz="0.0 0.16 0.046" rpy="-1.57 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
@@ -56,7 +56,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.054" radius="0.099"/>
+        <cylinder length="0.036" radius="0.066"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -64,7 +64,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.054" radius="0.099"/>
+        <cylinder length="0.036" radius="0.066"/>
       </geometry>
     </collision>
 
@@ -88,7 +88,7 @@
   <joint name="wheel_right_joint" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_right_link"/>
-    <origin xyz="0.0 -0.240 0.069" rpy="-1.57 0 0"/>
+    <origin xyz="0.0 -0.160 0.046" rpy="-1.57 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
@@ -96,7 +96,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.054" radius="0.099"/>
+        <cylinder length="0.036" radius="0.066"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -104,7 +104,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.054" radius="0.099"/>
+        <cylinder length="0.036" radius="0.066"/>
       </geometry>
     </collision>
 
@@ -128,14 +128,14 @@
   <joint name="caster_back_joint" type="fixed">
     <parent link="base_link"/>
     <child link="caster_back_link"/>
-    <origin xyz="-0.243 0 -0.012" rpy="-1.57 0 0"/>
+    <origin xyz="-0.162 0 -0.008" rpy="-1.57 0 0"/>
   </joint>
 
   <link name="caster_back_link">
     <collision>
-      <origin xyz="0 0.003 0" rpy="0 0 0"/>
+      <origin xyz="0 0.002 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.090 0.027 0.060"/>
+        <box size="0.060 0.018 0.040"/>
       </geometry>
     </collision>
 
@@ -159,7 +159,7 @@
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="imu_link"/>
-    <origin xyz="-0.096 0 0.204" rpy="0 0 0"/>
+    <origin xyz="-0.064 0 0.136" rpy="0 0 0"/>
   </joint>
 
   <link name="imu_link"/>
@@ -176,21 +176,21 @@
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_scan"/>
-    <origin xyz="-0.096 0 0.516" rpy="0 0 0"/>
+    <origin xyz="-0.064 0 0.344" rpy="0 0 0"/>
   </joint>
 
   <link name="base_scan">
     <visual>
-      <origin xyz="0.045 0 -0.0195" rpy="0 0 0"/>
+      <origin xyz="0.030 0 -0.0130" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.0945" radius="0.165"/>
+        <cylinder length="0.0630" radius="0.110"/>
       </geometry>
     </visual>
 
     <collision>
-      <origin xyz="0.045 0 -0.0195" rpy="0 0 0"/>
+      <origin xyz="0.030 0 -0.0130" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.0945" radius="0.165"/>
+        <cylinder length="0.0630" radius="0.110"/>
       </geometry>
     </collision>
 

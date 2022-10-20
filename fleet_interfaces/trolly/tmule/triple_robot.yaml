@@ -1,0 +1,47 @@
+---
+session: single_robot_sim
+init_cmd: |
+  #exec /bin/bash
+  echo "Sourcing..."
+  source ~/warez/src/warez/runcom.rc
+  source $(rospack find $CONFIG)/config/network.net
+  . /usr/share/gazebo/setup.sh
+  export TURTLEBOT3_MODEL=burger
+
+windows:
+
+# 1. Spawn the robot into the (already opened) gazebo server
+- name: gzrobot
+  panes:
+  - roslaunch trolly gzrobot.launch namespace:=bettie type:=triple x:=1.0 y:=1.0
+  check: "rostopic echo /bettie/odom -n 1"
+
+
+# 2. Launch the facilities for movebase to function
+- name: movebase
+  panes:
+  - roslaunch trolly movebase.launch
+#  - roslaunch trolly keyop.launch
+
+# 3. Launch the facilities for toponav to function
+#- name: topomap
+#  panes:
+#  - roslaunch trolly topoloc.launch
+
+
+
+
+
+#Session: server
+#- name: gzclient
+#- name: mapserver
+#- name: topomaps
+## name: networking
+
+#Session: robot
+#- name: gzrobot
+#- name: movebase
+#- name: topoloc
+## name: network
+## name: monitor
+

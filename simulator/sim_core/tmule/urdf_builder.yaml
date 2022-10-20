@@ -1,5 +1,5 @@
 ---
-session: tmap_test
+session: server
 init_cmd: |
   #exec /bin/bash
   echo "Sourcing..."
@@ -11,19 +11,19 @@ init_cmd: |
   . /usr/share/gazebo/setup.sh
 
 windows:
-- name: gazebo
+- name: gzserver
   panes:
   - roslaunch sim_core server.launch
   check: "rosservice list | grep -q gazebo"
 
 - name: robot
   panes:
-  - roslaunch trolly gzrobot.launch
+  - 'rosservice call /gazebo/delete_model "model_name: urduwan" ; roslaunch trolly gzrobot.launch type:=triple namespace:=urduwan x_pos:=0.0 y_pos:=0.0'
 
 - name: urdf
   panes:
-  - roscd trolly/urdf
+  - roscd trolly/urdf; nano triple_urdf.xacro
 
 - name: gzclient
   panes:
-  - gzclient
+  - gzclient & sleep 5; wmctrl -r Gazebo -b add,fullscreen

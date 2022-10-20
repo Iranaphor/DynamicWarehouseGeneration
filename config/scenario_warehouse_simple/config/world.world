@@ -77,9 +77,9 @@
     </scene>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-1.24249 -0.168241 21.4944 2.1e-05 1.5698 1.57233</pose>
-        <view_controller>ortho</view_controller>
-        <projection_type>orthographic</projection_type>
+        <pose frame=''>0.963147 -0.70397 0.424475 0 0.297797 2.50033</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
       </camera>
     </gui>
     <spherical_coordinates>
@@ -153,10 +153,10 @@
       <static>0</static>
     </model>
     <state world_name='default'>
-      <sim_time>1434 899000000</sim_time>
-      <real_time>203 144891796</real_time>
-      <wall_time>1665574561 629536053</wall_time>
-      <iterations>199112</iterations>
+      <sim_time>7641 984000000</sim_time>
+      <real_time>61 816658495</real_time>
+      <wall_time>1666037451 563350709</wall_time>
+      <iterations>60745</iterations>
       <model name='cardboard_box'>
         <pose frame=''>4.69362 -3.54434 0.149 0 -0 0</pose>
         <scale>1 1 1</scale>

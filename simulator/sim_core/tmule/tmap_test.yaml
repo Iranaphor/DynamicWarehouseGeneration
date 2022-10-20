@@ -1,5 +1,5 @@
 ---
-session: tmap_test
+session: server
 init_cmd: |
   #exec /bin/bash
   echo "Sourcing..."
@@ -11,14 +11,14 @@ init_cmd: |
   . /usr/share/gazebo/setup.sh
 
 windows:
-- name: simple_gazebo
+- name: gzserver
   panes:
   - roslaunch sim_core server.launch
   check: "rosservice list | grep -q gazebo"
 
 - name: topomaps
   panes:
-  - roslaunch sim_core maps.launch tmap_file:=$TMAP_FILE
+  - roslaunch sim_core topomaps.launch tmap_file:=$TMAP_FILE
 
 - name: tmap_rviz
   panes:

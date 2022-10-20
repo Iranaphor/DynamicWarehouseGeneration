@@ -1,14 +1,23 @@
 <launch>
-  <arg name="namespace"/>
+  <arg name="ns"/>
+  <arg name="type"/>
+  <arg name="x"/>
+  <arg name="y"/>
 
-  <arg name="model" value="$(find trolly)/urdf/urdf.xacro"/>
+  <arg name="z" default="0.0"/>
+  <arg name="model" value="$(find trolly)/urdf/urdf_$(arg type).xacro"/>
+  <arg name="model2" value="$(find trolly)/urdf/urdf_$(arg type).urdf.xacro"/>
 
-  <arg name="x_pos"/>
-  <arg name="y_pos"/>
-  <arg name="z_pos"/>
+  <group ns="$(arg ns)">
+    <param name="$(arg ns)_description" command="$(find xacro)/xacro --inorder $(arg model)" />
 
-  <group ns="$(arg namespace)">
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg namespace) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg ns) -x $(arg x) -y $(arg y) -z $(arg z) -param $(arg ns)_description" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <remap from="robot_description" to="$(arg ns)_description"/>
+      <param name="publish_frequency" type="double" value="50.0" />
+      <param name="tf_prefix" value="$(arg ns)"/>
+    </node>
+
   </group>
 </launch>

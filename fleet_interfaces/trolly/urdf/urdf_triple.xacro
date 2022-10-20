@@ -183,14 +183,15 @@
     <visual>
       <origin xyz="0.045 0 -0.0195" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.0945" radius="0.165"/>
+        <cylinder length="0.0315" radius="0.055"/>
       </geometry>
+      <material name="dark"/>
     </visual>
 
     <collision>
       <origin xyz="0.045 0 -0.0195" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.0945" radius="0.165"/>
+        <cylinder length="0.0315" radius="0.055"/>
       </geometry>
     </collision>
 

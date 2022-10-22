@@ -2,12 +2,22 @@
   <arg name="ns"/>
   <arg name="x"/>
   <arg name="y"/>
-
   <arg name="initial_pose_a" value="0.0"/>
+
+  <arg name="fake_it" default="False" doc="use if map/world does not exist"/>
 
   <group ns="$(arg ns)">
 
-    <node pkg="amcl" type="amcl" name="amcl">
+    <node name="fake_localization" pkg="fake_localization" type="fake_localization" if="$(arg fake_it)">
+      <remap from="base_pose_ground_truth" to="/$(arg ns)/odom" />
+      <remap from="amcl_pose" to="pose" />
+      <param name="~global_frame_id" type="string" value="map"/>
+      <param name="~odom_frame_id" type="string" value="$(arg ns)/odom"/>
+      <param name="~base_frame_id" type="string" value="$(arg ns)/base_link"/>
+    </node>
+
+
+    <node pkg="amcl" type="amcl" name="amcl" unless="$(arg fake_it)">
 
       <param name="min_particles"             value="500"/>
       <param name="max_particles"             value="3000"/>
@@ -44,7 +54,7 @@
       <param name="base_frame_id"             value="$(arg ns)/base_footprint"/>
 
       <param name="use_map_topic"             value="true"/>
-      <remap from="map" to="/map"/>
+      <remap from="map"                       to="/map"/>
       <param name="tf_broadcast"              value="true"/>
       <param name="global_frame_id"           value="map"/>
 

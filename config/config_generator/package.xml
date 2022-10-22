@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>config_generator</name>
+  <version>0.0.0</version>
+  <description>The config_generator package</description>
+  <maintainer email="diababa@todo.todo">diababa</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>map_server</depend>
+  <depend>topological_navigation</depend>
+  <export></export>
+</package>

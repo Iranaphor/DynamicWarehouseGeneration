@@ -1,7 +1,0 @@
-digraph G {
-"alphie/odom" -> "alphie/base_footprint"[label="Broadcaster: /gazebo\nAverage rate: 30.205 Hz\nMost recent transform: 84979.634 ( 0.006 sec old)\nBuffer length: 4.933 sec\n"];
-edge [style=invis];
- subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 84979.640"[ shape=plaintext ] ;
- }->"alphie/odom";
-}

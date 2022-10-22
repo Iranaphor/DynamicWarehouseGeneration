@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="pole">
+    <static>true</static>
+    <pose>0 0 0 0 0 0</pose>
+
+
+    <!-- MAIN COLLIDER -->
+
+    <link name="main_block">
+      <pose>0 0 1.5 0 0 0</pose>
+      <collision name="collision"><geometry><box><size>.65 .65 3</size></box></geometry></collision>
+      <visual name="visual"><geometry><box><size>.65 .65 3</size></box></geometry>
+          <material><ambient>.50 .50 .50 .25</ambient>
+                    <diffuse>.75 .75 .75 .25</diffuse></material></visual></link>
+
+  </model>
+</sdf>
+
+
+
+
+
+
+

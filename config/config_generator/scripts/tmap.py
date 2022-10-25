@@ -1,5 +1,5 @@
 import numpy as np
-
+import rospkg
 
 ## GENERATE TMAP
 #tmap_details = {'gen_time': '2022-06-23_13-10-11', 'location': 'riseholme'}
@@ -52,7 +52,7 @@ def get_node(node_details):
       yaw_goal_tolerance: 0.1
     restrictions_planning: {restrictions}
     restrictions_runtime: obstacleFree_1
-    verts: {vert}
+    verts: *{vert}
 """.format(**node_details)
 
 
@@ -131,22 +131,11 @@ def get_neighbours(grid, ri, ci):
 
 
 
-renders = {
-    '0': {'type': 'walkway',         'vert': '*vert0', 'restrictions': "['under', 'general']" },
-    '1': {'type': 'warehouse_shelf', 'vert': '*vert1', 'restrictions': "['under']" },
-    '2': {'type': 'pole',            'vert': '*vert2', 'restrictions': "False" }
-}
+def tmap(grid, yml_cats):
+    dims = (yml_cats['grid']['resolution']['x'], yml_cats['grid']['resolution']['y'])
+    save_as = yml_cats['CONFIG']
+    renders = yml_cats['renderings']
 
-
-
-def get_restrictions(cat, cat2):
-    if cat == '0' and cat2 == '0':
-        return renders['0']['restrictions']
-    return renders['1']['restrictions']
-
-
-
-def tmap(grid, dims, save_as=None):
     # Get standard vertice points
     verts = get_verts()
 
@@ -158,8 +147,8 @@ def tmap(grid, dims, save_as=None):
         for ci,c in enumerate(grid[ri]):
 
             # Skip pole nodes
-            cat = str(grid[ri][ci])
-            ren = renders[cat]['type']
+            cat = grid[ri][ci]
+            ren = renders[cat]['sdf']
             if ren == 'pole': continue
 
             # Generate generic node template
@@ -171,7 +160,7 @@ def tmap(grid, dims, save_as=None):
                             'vert': renders[cat]['vert'],
                             'x':x,
                             'y':y,
-                            'restrictions':renders[cat]['restrictions']}
+                            'restrictions':renders[cat]['restrictions'][cat]}
             node = get_node(node_details)
 
             #Get neighbouring edges
@@ -181,8 +170,8 @@ def tmap(grid, dims, save_as=None):
             for nei in neighbours:
 
                 #Skip if pole
-                cat2 = str(nei[2])
-                ren2 = renders[cat2]['type']
+                cat2 = nei[2]
+                ren2 = renders[cat2]['sdf']
                 if ren2 == 'pole': continue
 
                 # Generate edge
@@ -192,7 +181,7 @@ def tmap(grid, dims, save_as=None):
                                 'name2':name2,
                                 'action':'move_base',
                                 'action_type':'move_base_msgs/MoveBaseGoal',
-                                'restrictions': get_restrictions(cat, cat2)}
+                                'restrictions': renders[cat]['restrictions'][cat2]}
                 edge_list += [get_edge(edge_details)]
 
             # Add edges or empty list
@@ -210,5 +199,5 @@ def tmap(grid, dims, save_as=None):
     tmap = verts
     if save_as:
         path = rospkg.RosPack().get_path("config_generator")+"/../scenarios/scenario___%s/config/tmap.tmap2"%(save_as)
-        with open(tmap_path, 'w+') as f:
+        with open(path, 'w+') as f:
             f.write(tmap)

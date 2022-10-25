@@ -1,10 +1,13 @@
-export CONFIG="scenario_warehouse_simple"
-export GZWORLD="$(rospack find $CONFIG)/config/world.world"
-export MAP="$(rospack find $CONFIG)/config/maps/map.yaml"
+export WS_DIR=$HOME/warezexport
+export WWS_DIR=$WS_DIR/src/warez
 
-export TURTLE_TYPE="burger"
-export TURTLE_POS_X="0.0"
-export TURTLE_POS_Y="0.0"  
-export TURTLE_POS_Z="0.0"  
+export CONFIG=frog
+
+#export GZWORLD="scenario___$(rospack find $CONFIG)/config/world.world"
+#export MAP="scenario___$(rospack find $CONFIG)/config/maps/map.yaml"
+
+#export TURTLE_TYPE="burger"
+#export TURTLE_POS_X="0.0"
+#export TURTLE_POS_Y="0.0"  
 
 

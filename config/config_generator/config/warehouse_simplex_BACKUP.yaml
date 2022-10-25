@@ -1,0 +1,47 @@
+grid:
+  resolution:
+    x: 1
+    y: 1
+  size:
+    h: 15
+    w: 15
+
+wfc_template:
+  - [000, 000, 000, 000, 000, 000]
+  - [000, 000, 000, 111, 000, 000]
+  - [000, 111, 000, 111, 000, 000]
+  - [000, 111, 111, 111, 111, 000]
+  - [000, 000, 000, 000, 111, 000]
+  - [000, 000, 000, 000, 000, 000]
+
+renderings:
+  0:
+    icon:'   '
+    sdf:'walkway'
+    restrictions:
+      0: "['under', 'general']"
+      1: "['under']"
+      2: "False"
+    vert: '*vert0'
+
+  1:
+    icon:'[_]'
+    sdf:'warehouse_shelf'
+    restrictions:
+      0: "['under']"
+      1: "['under']"
+      2: "False"
+    vert: '*vert1'
+
+  2:
+    icon:'{X}'
+    sdf:'pole'
+    restrictions:
+      0: "False"
+      1: "False"
+      2: "False"
+    vert: '*vert2'
+
+
+
+

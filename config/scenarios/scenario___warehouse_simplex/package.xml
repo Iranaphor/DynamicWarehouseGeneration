@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>scenario___warehouse_simplex</name>
+  <version>0.0.0</version>
+  <description>The scenario___warehouse_simplex package</description>
+  <maintainer email="diababa@todo.todo">diababa</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <export></export>
+</package>

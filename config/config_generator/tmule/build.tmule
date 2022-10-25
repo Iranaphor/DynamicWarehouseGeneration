@@ -1,0 +1,45 @@
+---
+session: server
+init_cmd: |
+  #exec /bin/bash
+  echo "Sourcing..."
+  source ~/warez/src/warez/runcom.rc
+  . /usr/share/gazebo/setup.sh
+  export CONFIG="frog"
+  export DISPLAY=:0.0
+
+  export ROS_MASTER=10.8.0.98
+  export ROS_MASTER_URI=http://$ROS_MASTER:11311
+  export ROS_IP=$ROS_MASTER
+
+
+
+windows:
+
+# 0. Create the directory as a copy of the template
+- name: core
+  panes:
+  - roscore
+
+
+# 1. Create the directory as a copy of the template
+- name: folder
+  panes:
+  - rostopic list; sleep 5; rostopic list; sleep 2; rostopic list
+  - sleep 5; roslaunch config_generator build.launch config:=$CONFIG
+  check: "rostopic echo /build/complete -n 1"
+
+
+# 2. Open gazebo
+- name: gzserver
+  panes:
+  - roslaunch config_generator gazebo.launch config:=$CONFIG
+  check: "rosservice list | grep -q gazebo"
+
+
+# 3. Generate world
+- name: world
+  panes:
+  - sleep 5; roslaunch config_generator world.launch config:=$CONFIG
+
+

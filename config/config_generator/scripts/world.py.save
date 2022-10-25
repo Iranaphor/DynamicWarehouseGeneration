@@ -38,12 +38,12 @@ if __name__=='__main__':
     path = rospkg.RosPack().get_path("config_generator")+"/../scenarios/scenario___%s/config/config.yaml"%(CONFIG)
     with open(path, 'r') as f:
         yml_cats = yaml.safe_load(f)
+ # tmux-controller sent Ctrl-C at Sun Oct 23 08:51:21 2022
     yml_cats['CONFIG'] = CONFIG
 
 
     grid_path = rospkg.RosPack().get_path("config_generator")+"/../scenarios/scenario___%s/config/wfc.grid"%(CONFIG)
-    with open(grid_path, 'rb') as f:
-        grid = np.load(f)
+    grid = np.fromfile(path).tolist()
     print(grid)
 
     world(grid, yml_cats)

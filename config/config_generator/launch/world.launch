@@ -1,0 +1,4 @@
+<launch>
+  <arg name="config"/>
+  <node pkg="config_generator" name="world" type="world.py" args="$(arg config)" />
+</launch>

@@ -1,0 +1,15 @@
+<launch>
+  <arg name="config"/>
+
+  <arg name="world"  value="$(find config_generator)/../scenarios/scenario___$(arg config)/config/world.world"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name"   value="$(arg world)"/>
+    <arg name="paused"       value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui"          value="false"/>
+    <arg name="headless"     value="false"/>
+    <arg name="debug"        value="false"/>
+  </include>
+
+</launch>

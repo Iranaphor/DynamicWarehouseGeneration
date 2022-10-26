@@ -1,10 +1,9 @@
-export WS_DIR=$HOME/warezexport
+export WS_DIR=$HOME/warez
 export WWS_DIR=$WS_DIR/src/warez
 
 export CONFIG=frog
-
-#export GZWORLD="scenario___$(rospack find $CONFIG)/config/world.world"
-#export MAP="scenario___$(rospack find $CONFIG)/config/maps/map.yaml"
+export CONFIG_PKG=scenario___$CONFIG
+export CONFIG_PKG_PATH=$(rospack find $CONFIG_PKG)
 
 #export TURTLE_TYPE="burger"
 #export TURTLE_POS_X="0.0"

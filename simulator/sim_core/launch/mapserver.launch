@@ -1,7 +1,9 @@
 <launch>
-  <arg name="map_file"/>
+
+  <arg name="map_file" value="$(env CONFIG_PKG_PATH)/config/maps/map.yaml"/>
 
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)">
     <param name="frame_id" value="map"/>
   </node>
+
 </launch>

@@ -5,7 +5,6 @@ function tml () {
     #Select a TMuLE to load
     tmule_list=$(get_tmules)
     ans1=$(whiptail --title "$T" --notags --menu "TMuLE Files:" $WT_height $WT_width $WT_menu_height 3>&1 1>&2 2>&3 $tmule_list)
-return
     if [[ $ans1 == "" ]] ; then
         whiptail --title "$T" --msgbox "No TMuLE Selected" $WT_height $WT_width $WT_menu_height 3>&1 1>&2 2>&3
         return

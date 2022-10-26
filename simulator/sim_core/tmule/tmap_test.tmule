@@ -4,9 +4,9 @@ init_cmd: |
   #exec /bin/bash
   echo "Sourcing..."
   source ~/warez/src/warez/runcom.rc
-  source $(rospack find $CONFIG)/config/network.net
-  export TMAP_FILE=$(rospack find $CONFIG)/config/tmaps/tmap.tmap2
-  export RVIZ_FILE=$(rospack find $CONFIG)/config/tmaps/tmaps.rviz
+  source $(rospack find $CONFIG_PKG)/config/network.net
+  export TMAP_FILE=$(rospack find $CONFIG_PKG)/config/tmaps/tmap.tmap2
+  export RVIZ_FILE=$(rospack find $CONFIG_PKG)/config/tmaps/tmaps.rviz
   export DISPLAY=:0.0
   . /usr/share/gazebo/setup.sh
 

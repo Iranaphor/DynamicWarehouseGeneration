@@ -4,9 +4,7 @@ init_cmd: |
   #exec /bin/bash
   echo "Sourcing..."
   source ~/warez/src/warez/runcom.rc
-  source $(rospack find $CONFIG)/config/network.net
-  export MAP_FILE=$(rospack find $CONFIG)/config/maps/map.map
-  export TMAP_FILE=$(rospack find $CONFIG)/config/tmaps/tmap.tmap2
+  source $CONFIG_PKG_PATH/config/network.net
 
   . /usr/share/gazebo/setup.sh
   export TURTLEBOT3_MODEL=burger

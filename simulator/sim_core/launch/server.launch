@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="world" default="$(env GZWORLD)"/>
+  <arg name="world" default="$(env CONFIG_PKG_PATH)/config/world.world"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name"   value="$(arg world)"/>

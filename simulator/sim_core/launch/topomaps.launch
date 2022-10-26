@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
-    <arg name="tmap_file"/>
+    <arg name="tmap_file" value="$(env CONFIG_PKG_PATH)/config/tmaps/tmap.tmap2"/>
 
     <node pkg="topological_navigation" type="map_manager2.py" name="topological_map_manager2" args="$(arg tmap_file)" respawn="true"/>
     <node pkg="topological_navigation" type="visualise_map.py" name="visualise_map" args="-e" respawn="false" />

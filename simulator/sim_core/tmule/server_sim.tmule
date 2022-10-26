@@ -4,10 +4,7 @@ init_cmd: |
   #exec /bin/bash
   echo "Sourcing..."
   source ~/warez/src/warez/runcom.rc
-  source $(rospack find $CONFIG)/config/network.net
-  export MAP_FILE=$(rospack find $CONFIG)/config/maps/map.map
-  export TMAP_FILE=$(rospack find $CONFIG)/config/tmaps/tmap.tmap2
-  export RVIZ_FILE=$(rospack find $CONFIG)/config/tmaps/tmaps.rviz
+  source $CONFIG_PKG_PATH/config/network.net
 
   . /usr/share/gazebo/setup.sh
   export TURTLEBOT3_MODEL=burger
@@ -18,27 +15,27 @@ windows:
 # 1. Spawn the robot into the (already opened) gazebo server
 - name: gzserver
   panes:
-  - roslaunch sim_core server.launch use_sim:=false
+  - roslaunch sim_core server.launch
   check: "rosservice list | grep -q gazebo"
 
 
 # 2. Open visualisation tools
 - name: visuals
   panes:
-  - rviz -d $RVIZ_FILE
-#  - gzclient #& sleep 5; wmctrl -r Gazebo -b add,fullscreen
+  - rviz -d $CONFIG_PKG_PATH/config/tmaps/tmaps.rviz
+  - gzclient #& sleep 5; wmctrl -r Gazebo -b add,fullscreen
 
 
 # 3. Launch the map server for the occupancy grid
 - name: mapserver
   panes:
-  - roslaunch sim_core mapserver.launch map_file:=$MAP
+  - roslaunch sim_core mapserver.launch
 
 
 # 4. Launch the topological maps and restrictors
 #- name: topomaps
 #  panes:
-#  - roslaunch sim_core topomaps.launch tmap_file:=$TMAP_FILE
+#  - roslaunch sim_core topomaps.launch
 
 
 ## 5. Launch the networking systems

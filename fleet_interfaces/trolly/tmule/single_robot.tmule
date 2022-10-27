@@ -27,17 +27,17 @@ windows:
 # 2. Launch the facilities for movebase to function
 - name: movebase
   panes:
-  - roslaunch trolly localisation.launch ns:=$NAME x:=$X y:=$Y
+  - roslaunch trolly localisation.launch ns:=$NAME x:=$X y:=$Y fake_it:=true
   - roslaunch trolly movebase.launch ns:=$NAME
   - roslaunch trolly keyop.launch ns:=$NAME
 
 
-## 3. Launch the facilities for toponav to function
-#- name: topobase
-#  panes:
-#  - roslaunch trolly topoloc.launch
-#  - roslaunch trolly toponav.launch
-#
+# 3. Launch the facilities for toponav to function
+- name: topobase
+  panes:
+  - roslaunch trolly topoloc.launch ns:=$NAME
+  - roslaunch trolly toponav.launch ns:=$NAME
+
 #
 ## 4. Launch the networking systems
 #- name: network
@@ -50,5 +50,3 @@ windows:
 #  panes: 
 #  - roslaunch trolly monitoring.launch
 #
-#
-

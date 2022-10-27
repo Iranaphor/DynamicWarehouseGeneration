@@ -33,9 +33,9 @@ windows:
 
 
 # 4. Launch the topological maps and restrictors
-#- name: topomaps
-#  panes:
-#  - roslaunch sim_core topomaps.launch
+- name: topomaps
+  panes:
+  - roslaunch sim_core topomaps.launch
 
 
 ## 5. Launch the networking systems

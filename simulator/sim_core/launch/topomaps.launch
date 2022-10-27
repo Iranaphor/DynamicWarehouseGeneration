@@ -3,16 +3,20 @@
     <arg name="tmap_file" value="$(env CONFIG_PKG_PATH)/config/tmaps/tmap.tmap2"/>
 
     <node pkg="topological_navigation" type="map_manager2.py" name="topological_map_manager2" args="$(arg tmap_file)" respawn="true"/>
+    <node pkg="topological_navigation" name="topological_transform_publisher" type="topological_transform_publisher.py" output="screen" respawn="true"/>
     <node pkg="topological_navigation" type="visualise_map.py" name="visualise_map" args="-e" respawn="false" />
 
     <group ns="restricted_maps">
 
         <group ns="normal_map">
-            <node pkg="sim_core" name="restrictor" type="restrictor.py" output="screen" respawn="true" >
+            <node pkg="sim_core" name="$(anon restrictor)" type="restrictor.py" output="screen" respawn="true" >
                 <param name="initial_restriction" type="str" value="'general' in $"/>
                 <param name="enable_eval_sub" type="bool" value="False" />
                 <remap from="/restricted_topological_map" to="tmap" />
                 <remap from="/restricted_topological_map_2" to="tmap_2" />
+            </node>
+            <node pkg="topological_navigation" name="topological_transform_publisher" type="topological_transform_publisher.py" output="screen" respawn="true">
+                <remap from="topological_map_2" to="tmap_2"/>
             </node>
             <node pkg="topological_navigation" type="visualise_map2.py" name="topological_visualisation" output="screen">
                 <remap from="topological_map_2" to="tmap_2" />
@@ -21,12 +25,16 @@
             </node>
         </group>
 
+
         <group ns="under_map">
-            <node pkg="sim_core" name="restrictor" type="restrictor.py" output="screen" respawn="true" >
+            <node pkg="sim_core" name="$(anon restrictor)" type="restrictor.py" output="screen" respawn="true" >
                 <param name="initial_restriction" type="str" value="'under' in $ and 'general' not in $"/>
                 <param name="enable_eval_sub" type="bool" value="False" />
                 <remap from="/restricted_topological_map" to="tmap" />
                 <remap from="/restricted_topological_map_2" to="tmap_2" />
+            </node>
+            <node pkg="topological_navigation" name="topological_transform_publisher" type="topological_transform_publisher.py" output="screen" respawn="true">
+                <remap from="topological_map_2" to="tmap_2"/>
             </node>
             <node pkg="topological_navigation" type="visualise_map2.py" name="topological_visualisation" output="screen">
                 <remap from="topological_map_2" to="tmap_2" />
@@ -37,11 +45,14 @@
 
 
         <group ns="under_over_map">
-            <node pkg="sim_core" name="restrictor" type="restrictor.py" output="screen" respawn="true" >
+            <node pkg="sim_core" name="$(anon restrictor)" type="restrictor.py" output="screen" respawn="true" >
                 <param name="initial_restriction" type="str" value="'under' in $"/>
                 <param name="enable_eval_sub" type="bool" value="False" />
                 <remap from="/restricted_topological_map" to="tmap" />
                 <remap from="/restricted_topological_map_2" to="tmap_2" />
+            </node>
+            <node pkg="topological_navigation" name="topological_transform_publisher" type="topological_transform_publisher.py" output="screen" respawn="true">
+                <remap from="topological_map_2" to="tmap_2"/>
             </node>
             <node pkg="topological_navigation" type="visualise_map2.py" name="topological_visualisation" output="screen">
                 <remap from="topological_map_2" to="tmap_2" />
@@ -49,7 +60,6 @@
                 <remap from="topological_map_visualisation" to="tmap_vis" />
             </node>
         </group>
-
 
     </group>
 </launch>

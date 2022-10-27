@@ -198,6 +198,6 @@ def tmap(grid, yml_cats):
     # Save TMap file
     tmap = verts
     if save_as:
-        path = rospkg.RosPack().get_path("config_generator")+"/../scenarios/scenario___%s/config/tmap.tmap2"%(save_as)
+        path = rospkg.RosPack().get_path("config_generator")+"/../scenarios/scenario___%s/config/tmaps/tmap.tmap2"%(save_as)
         with open(path, 'w+') as f:
             f.write(tmap)

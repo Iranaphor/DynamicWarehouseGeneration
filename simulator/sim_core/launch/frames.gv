@@ -1,0 +1,15 @@
+digraph G {
+"alphie/base_footprint" -> "alphie/base_link"[label="Broadcaster: /alphie/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 96072.887 sec old)\nBuffer length: 0.000 sec\n"];
+"alphie/odom" -> "alphie/base_footprint"[label="Broadcaster: /gazebo\nAverage rate: 30.208 Hz\nMost recent transform: 96072.886 ( 0.001 sec old)\nBuffer length: 4.800 sec\n"];
+"alphie/base_link" -> "alphie/caster_back_link"[label="Broadcaster: /alphie/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 96072.887 sec old)\nBuffer length: 0.000 sec\n"];
+"alphie/base_link" -> "alphie/imu_link"[label="Broadcaster: /alphie/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 96072.887 sec old)\nBuffer length: 0.000 sec\n"];
+"alphie/base_link" -> "alphie/base_scan"[label="Broadcaster: /alphie/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 96072.887 sec old)\nBuffer length: 0.000 sec\n"];
+"map" -> "topo_map"[label="Broadcaster: /topological_transform_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 96072.887 sec old)\nBuffer length: 0.000 sec\n"];
+"alphie/base_link" -> "alphie/wheel_left_link"[label="Broadcaster: /alphie/robot_state_publisher\nAverage rate: 30.208 Hz\nMost recent transform: 96072.887 ( 0.000 sec old)\nBuffer length: 4.800 sec\n"];
+"alphie/base_link" -> "alphie/wheel_right_link"[label="Broadcaster: /alphie/robot_state_publisher\nAverage rate: 30.208 Hz\nMost recent transform: 96072.887 ( 0.000 sec old)\nBuffer length: 4.800 sec\n"];
+"map" -> "alphie/odom"[label="Broadcaster: /alphie/fake_localization\nAverage rate: 30.208 Hz\nMost recent transform: 96072.986 ( -0.099 sec old)\nBuffer length: 4.800 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 96072.887"[ shape=plaintext ] ;
+ }->"map";
+}

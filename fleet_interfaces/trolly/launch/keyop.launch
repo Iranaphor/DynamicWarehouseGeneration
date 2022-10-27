@@ -1,5 +1,5 @@
 <launch>
-  <arg name="ns"/>
+  <arg name="ns" value="$(env NS_NAME)"/>
 
   <group ns="$(arg ns)">
     <node pkg="turtlebot3_teleop" type="turtlebot3_teleop_key" name="keyop"  output="screen"/>

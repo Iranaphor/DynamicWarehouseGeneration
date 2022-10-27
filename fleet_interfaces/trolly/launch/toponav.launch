@@ -1,30 +1,24 @@
 <?xml version="1.0" ?>
 <launch>
-  <arg name="restriction" default="normal_map" />
+  <arg name="ns"   value="$(env NS_NAME)"/>
+  <arg name="tmap" value="$(env TMAP)"/>
 
-  <arg name="move_base_name" default="/alphie/move_base"/>
-  <arg name="move_base_planner" default="/alphie/move_base/DWAPlannerROS"/>
-
-  <arg name="move_base_actions" default="['move_base', 'human_aware_navigation','han_adapt_speed','han_vc_corridor','han_vc_junction','row_change','row_traversal']"/>
+  <arg name="move_base_name"           default="/$(arg ns)/move_base"/>
+  <arg name="move_base_planner"        default="/$(arg ns)/move_base/DWAPlannerROS"/>
+  <arg name="move_base_actions"        default="['move_base', 'human_aware_navigation','han_adapt_speed','han_vc_corridor','han_vc_junction','row_change','row_traversal']"/>
   <arg name="max_dist_to_closest_edge" default="1.0"/>
-
-  <arg name="reconfigure_edges" default="true"/>
-  <arg name="ns"/>
+  <arg name="reconfigure_edges"        default="true"/>
 
   <group ns="$(arg ns)">
-
     <node pkg="topological_navigation" name="topological_navigation" type="navigation.py" output="screen" respawn="true">
       <param name="move_base_name" type="str" value="$(arg move_base_name)"/>
       <param name="move_base_planner" type="str" value="$(arg move_base_planner)"/>
-
       <param name="max_dist_to_closest_edge" value="$(arg max_dist_to_closest_edge)"/>
       <param name="reconfigure_edges" value="$(arg reconfigure_edges)"/>
       <rosparam param="move_base_actions" subst_value="True">$(arg move_base_actions)</rosparam>
-
-      <remap from="/topological_map_2" to="/restricted_maps/$(arg restriction)/tmap_2"/>
+      <remap from="/topological_map_2" to="/restricted_maps/$(arg tmap)/tmap_2"/>
       <remap from="/closest_edges"     to="closest_edges"/>
     </node>
-
   </group>
 
 </launch>

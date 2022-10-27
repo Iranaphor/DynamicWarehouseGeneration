@@ -1,15 +1,16 @@
+<?xml version="1.0"?>
 <launch>
-  <arg name="ns"/>
+  <arg name="ns" value="$(env NS_NAME)"/>
+
   <arg name="type"/>
   <arg name="x"/>
   <arg name="y"/>
-
   <arg name="z" default="0.0"/>
+
   <arg name="model" value="$(find trolly)/urdf/urdf_$(arg type).xacro"/>
-  <arg name="model2" value="$(find trolly)/urdf/urdf_$(arg type).urdf.xacro"/>
 
   <group ns="$(arg ns)">
-    <param name="$(arg ns)_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+    <param name="$(arg ns)_description" command="$(find xacro)/xacro $(arg model)" />
 
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg ns) -x $(arg x) -y $(arg y) -z $(arg z) -param $(arg ns)_description" />
 

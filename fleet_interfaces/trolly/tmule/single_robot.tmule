@@ -5,48 +5,50 @@ init_cmd: |
   echo "Sourcing..."
   source ~/warez/src/warez/runcom.rc
   source $CONFIG_PKG_PATH/config/network.net
-
   . /usr/share/gazebo/setup.sh
-  export TURTLEBOT3_MODEL=burger
   export DISPLAY=:0.0
+
+  export TURTLEBOT3_MODEL=burger
   
-  export NAME="alphie"
+  export NS_NAME="alphie"
   export TYPE="single"
   export X="0.0"
   export Y="0.0"
+  export TMAP="under_over_map"
 
 windows:
 
 # 1. Spawn the robot into the (already opened) gazebo server
 - name: gzrobot
   panes:
-  - roslaunch trolly gzrobot.launch ns:=$NAME type:=$TYPE x:=$X y:=$Y
-  check: "rostopic echo /$NAME/odom -n 1"
+  - roslaunch trolly gzrobot.launch type:=$TYPE x:=$X y:=$Y
+  - 'echo rosservice call /gazebo/delete_model "model_name: $NS_NAME"'
+  check: "rostopic echo /$NS_NAME/odom -n 1"
 
 
 # 2. Launch the facilities for movebase to function
 - name: movebase
   panes:
-  - roslaunch trolly localisation.launch ns:=$NAME x:=$X y:=$Y fake_it:=true
-  - roslaunch trolly movebase.launch ns:=$NAME
-  - roslaunch trolly keyop.launch ns:=$NAME
+  - roslaunch trolly localisation.launch x:=$X y:=$Y fake_it:=true
+  - roslaunch trolly movebase.launch
+  #- roslaunch trolly keyop.launch
 
 
 # 3. Launch the facilities for toponav to function
 - name: topobase
   panes:
-  - roslaunch trolly topoloc.launch ns:=$NAME
-  - roslaunch trolly toponav.launch ns:=$NAME
+  - roslaunch trolly topoloc.launch
+  - roslaunch trolly toponav.launch
 
-#
+
 ## 4. Launch the networking systems
 #- name: network
 #  panes:
 #  - roslaunch trolly networking.launch
-#
-#
+
+
 ## 5. Launch the system monitoring processes
 #- name: monitor
 #  panes: 
 #  - roslaunch trolly monitoring.launch
-#
+

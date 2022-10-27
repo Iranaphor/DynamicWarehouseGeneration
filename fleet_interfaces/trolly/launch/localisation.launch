@@ -1,10 +1,11 @@
 <launch>
-  <arg name="ns"/>
+  <arg name="ns" value="$(env NS_NAME)"/>
+
   <arg name="x"/>
   <arg name="y"/>
   <arg name="initial_pose_a" value="0.0"/>
 
-  <arg name="fake_it" default="False" doc="use if map/world does not exist"/>
+  <arg name="fake_it" default="True" doc="use if map/world does not exist"/>
 
   <group ns="$(arg ns)">
 

@@ -1,17 +1,13 @@
 <?xml version="1.0" ?>
 <launch>
-
-  <arg name="base_frame" default="alphie/base_link" />
-  <arg name="restriction" default="normal_map" />
-  <arg name="ns"/>
+  <arg name="ns"   value="$(env NS_NAME)"/>
+  <arg name="tmap" value="$(env TMAP)" />
 
   <group ns="$(arg ns)">
-
     <node pkg="topological_navigation" name="topological_localisation" type="localisation.py" output="screen" respawn="true">
-      <param name="base_frame" value="$(arg base_frame)"/>
-      <remap from="topological_map_2" to="/restricted_maps/$(arg restriction)/tmap_2"/>
+      <param name="base_frame" value="$(arg ns)/base_link"/>
+      <remap from="topological_map_2" to="/restricted_maps/$(arg tmap)/tmap_2"/>
     </node>
-
   </group>
 
 </launch>

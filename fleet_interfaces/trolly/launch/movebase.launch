@@ -1,5 +1,6 @@
 <launch>
-  <arg name="ns"/>
+  <arg name="ns"   value="$(env NS_NAME)"/>
+  <arg name="type" value="$(env TYPE)" />
 
   <group ns="$(arg ns)">
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
@@ -11,14 +12,13 @@
 
       <remap from="map" to="/map" />
 
-      <rosparam file="$(find trolly)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+      <rosparam file="$(find trolly)/param/costmap_$(arg type)_params.yaml" command="load" ns="global_costmap" />
       <rosparam file="$(find trolly)/param/global_costmap_params.yaml" command="load" />
       <param name="global_costmap/robot_base_frame"    value="$(arg ns)/base_footprint" />
       <param name="global_costmap/scan/sensor_frame"   value="$(arg ns)/base_scan" />
       <param name="global_costmap/global_frame"        value="map" />
 
-
-      <rosparam file="$(find trolly)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find trolly)/param/costmap_$(arg type)_params.yaml" command="load" ns="local_costmap" />
       <rosparam file="$(find trolly)/param/local_costmap_params.yaml" command="load" />
       <param name="local_costmap/robot_base_frame"     value="$(arg ns)/base_footprint" />
       <param name="local_costmap/scan/sensor_frame"    value="$(arg ns)/base_scan" />

@@ -1,56 +1,54 @@
-
 ---
 session: triple_robot_sim
 init_cmd: |
   #exec /bin/bash
   echo "Sourcing..."
   source ~/warez/src/warez/runcom.rc
-  source $(rospack find $CONFIG_PKG)/config/network.net
-  export MAP_FILE=$(rospack find $CONFIG_PKG)/config/maps/map.map
-  export TMAP_FILE=$(rospack find $CONFIG_PKG)/config/tmaps/tmap.tmap2
-
+  source $CONFIG_PKG_PATH/config/network.net
   . /usr/share/gazebo/setup.sh
-  export TURTLEBOT3_MODEL=burger
   export DISPLAY=:0.0
 
-  export NAME="bettie"
+  export TURTLEBOT3_MODEL=burger
+  
+  export NS_NAME="bettie"
   export TYPE="triple"
-  export X="1.0"
+  export X="0.0"
   export Y="1.0"
+  export TMAP="normal_map"
 
 windows:
 
 # 1. Spawn the robot into the (already opened) gazebo server
 - name: gzrobot
   panes:
-  - roslaunch trolly gzrobot.launch ns:=$NAME type:=$TYPE x:=$X y:=$Y
-  check: "rostopic echo /$NAME/odom -n 1"
+  - roslaunch trolly gzrobot.launch type:=$TYPE x:=$X y:=$Y
+  - 'echo rosservice call /gazebo/delete_model "model_name: $NS_NAME"'
+  check: "rostopic echo /$NS_NAME/odom -n 1"
 
 
 # 2. Launch the facilities for movebase to function
 - name: movebase
   panes:
-  - roslaunch trolly localisation.launch ns:=$NAME x:=$X y:=$Y
-  - roslaunch trolly movebase.launch ns:=$NAME
-  - roslaunch trolly keyop.launch ns:=$NAME
+  - roslaunch trolly localisation.launch x:=$X y:=$Y fake_it:=true
+  - roslaunch trolly movebase.launch
+  #- roslaunch trolly keyop.launch
 
 
-## 3. Launch the facilities for toponav to function
-#- name: topobase
-#  panes:
-#  - roslaunch trolly topoloc.launch
-#  - roslaunch trolly toponav.launch
-#
-#
+# 3. Launch the facilities for toponav to function
+- name: topobase
+  panes:
+  - roslaunch trolly topoloc.launch
+  - roslaunch trolly toponav.launch
+
+
 ## 4. Launch the networking systems
 #- name: network
 #  panes:
 #  - roslaunch trolly networking.launch
-#
-#
+
+
 ## 5. Launch the system monitoring processes
 #- name: monitor
 #  panes: 
 #  - roslaunch trolly monitoring.launch
-#
-#
+

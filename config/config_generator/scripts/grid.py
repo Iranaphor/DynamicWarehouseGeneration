@@ -1,3 +1,6 @@
+import sys
+import yaml
+from pprint import pprint
 import cv2
 import rospkg
 import numpy as np
@@ -22,7 +25,7 @@ def printer(img, labels, name=''):
 def grid(yml_cats):
     grid_size = (yml_cats['grid']['size']['h'], yml_cats['grid']['size']['w'])
     template = [r for r in yml_cats['wfc_template']]
-    save_as = yml_cats['CONFIG']
+    save_as = yml_cats['save_as']
     labels = yml_cats['renderings']
 
     pixels = [[111-c for c in r] for r in template]
@@ -57,3 +60,23 @@ def grid(yml_cats):
         with open(path, 'wb') as f:
             np.save(f, grid)
     return grid
+
+
+
+if __name__=='__main__':
+    if len(sys.argv) > 1:
+        config_filepath = sys.argv[1]
+    else:
+        config_filepath = os.getenv('CONFIG_FILEPATH')
+
+    """ Load yaml file """
+    with open(config_filepath, 'r') as f:
+        yml_cats = yaml.safe_load(f)
+    yml_cats['CONFIG'] = config_filepath
+    yml_cats['save_as'] = False
+
+    pprint(yml_cats)
+
+    """ Generate a grid using Wave-Form Collapse """
+    Grid = grid(yml_cats)
+

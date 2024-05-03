@@ -4,7 +4,7 @@ grid:
     y: 1
   size:
     h: 15
-    w: 15
+    w: 25
 
 wfc_template:
   - [000, 000, 000, 000, 000, 000]
@@ -16,7 +16,7 @@ wfc_template:
 
 renderings:
   0:
-    icon: '   '
+    icon: '  '
     sdf: 'walkway'
     restrictions:
       0: "['under', 'general']"
@@ -24,7 +24,7 @@ renderings:
       2: "False"
     vert: 'vert0'
   1:
-    icon: '[=]'
+    icon: '📦'
     sdf: 'warehouse_shelf'
     restrictions:
       0: "['under']"
@@ -33,7 +33,7 @@ renderings:
     vert: 'vert1'
 
   2:
-    icon: '{X}'
+    icon: '🧱'
     sdf: 'pole'
     restrictions:
       0: "False"
